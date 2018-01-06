@@ -1,0 +1,13 @@
+// Utilites
+// Variables need to be declared before being used
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/placeholders';
+
+// Base Styles
+// Consider adding CSS reset file
+@import 'base/base';
+
+// Component Styles
+
+// Layout Styles
