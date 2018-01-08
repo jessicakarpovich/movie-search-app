@@ -5,12 +5,9 @@
 @import 'utils/placeholders';
 
 // Base Styles
-// Consider adding CSS reset file
+@import 'base/reset';
 @import 'base/base';
 
 // Component Styles
 
 // Layout Styles
-p {
-    color: blue;
-}
