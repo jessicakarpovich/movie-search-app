@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-    
+<html lang="en">    
     
     <head>
         <meta charset="utf-8">
@@ -12,9 +11,7 @@
     </head>
     
     
-    <body>
-        
-        
+    <body>    
         <header>
             <h1 class="logo"><a href=index.html>MovieSearch</a></h1>
             
@@ -28,13 +25,27 @@
                 </ul>
             </nav>
             
-            <!-- Add search form and label -->
-            
+            <form>
+                <label for="movie-search">Search for your favorite movies by entering the title</label>
+                <input type="search" id="movie-search" name="q" placeholder="ex. Wonder Woman">
+                
+                <button class="search-btn"><img src="images/SearchIcon.png" alt="Search"></button>
+            </form>
         </header>
         
         
-        <h1>Come here to search for movies!</h1>
-        <p>Enter a search term.</p>
+        <section class="search-results">
+            <!-- Default look before search has been preformed -->
+            <h2>Search Results:</h2>
+            
+            <p>Enter the title of the movie to see the search results appear here.</p>
+            
+        </section>
+    
+        
+        <footer>
+            <p>Built by Jessica Karpovich for DWS2</p>
+        </footer>
         
         <!-- <script src=""></script> -->
     </body>
