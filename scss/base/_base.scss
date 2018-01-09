@@ -115,7 +115,52 @@ form {
     margin: 3rem 0;
 }
 
+.search-results {
+    overflow: auto;
+    position: relative;
+    
+    button {
+        padding: 2rem;
+        margin: 5rem 40rem;
+        
+        background: $highlight-color;
+        color: $main-bg-color;
+        
+        font-weight: 700;
+        font-family: $font-family-caption;
+        
+        border-radius: 1rem;
+        border-style: none;
+    }
+}
 
+/* aiming for 3 column layout
+*  fixed max-width means it becomes 4 columns on larger displays */
+.search-results article {
+    width: calc(100% / 3);
+    float: left;
+    padding: 0;
+    margin: 1rem;
+    font-family: $font-family-caption;
+    background-color: $main-bg-color;
+    max-width: 30rem;
+    
+    img {
+        @include wh(30rem, 45rem);
+    }
+    
+    h3 {
+        color: $highlight-color;
+        font-size: 1.5rem;
+        padding: 1rem 0 1rem 1rem;
+        background-color: $main-bg-color;
+    }
+    
+    p {
+        padding: 0 0 1rem 1rem;
+        background-color: $main-bg-color;
+    }
+}
 
 /*** footer ***/
 footer {

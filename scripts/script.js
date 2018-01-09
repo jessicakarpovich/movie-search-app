@@ -32,6 +32,7 @@ function showSearchResult(data) {
         content += "</article>";
     }
     
+    content += "<button>See more on Hulu</button>";
     content += "</section>";
     
     

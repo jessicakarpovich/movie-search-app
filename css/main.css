@@ -108,6 +108,41 @@ form {
 #msg {
   margin: 3rem 0; }
 
+.search-results {
+  overflow: auto;
+  position: relative; }
+  .search-results button {
+    padding: 2rem;
+    margin: 5rem 40rem;
+    background: #91306b;
+    color: #1b0914;
+    font-weight: 700;
+    font-family: "PT Sans Caption", sans-serif;
+    border-radius: 1rem;
+    border-style: none; }
+
+/* aiming for 3 column layout
+*  fixed max-width means it becomes 4 columns on larger displays */
+.search-results article {
+  width: calc(100% / 3);
+  float: left;
+  padding: 0;
+  margin: 1rem;
+  font-family: "PT Sans Caption", sans-serif;
+  background-color: #1b0914;
+  max-width: 30rem; }
+  .search-results article img {
+    width: 30rem;
+    height: 45rem; }
+  .search-results article h3 {
+    color: #91306b;
+    font-size: 1.5rem;
+    padding: 1rem 0 1rem 1rem;
+    background-color: #1b0914; }
+  .search-results article p {
+    padding: 0 0 1rem 1rem;
+    background-color: #1b0914; }
+
 /*** footer ***/
 footer {
   text-align: center;
