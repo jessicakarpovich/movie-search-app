@@ -16,6 +16,7 @@ ul {
 a {
   text-decoration-line: none; }
 
+/*** general ***/
 html {
   font-size: 62.5%; }
 
@@ -34,11 +35,13 @@ h2 {
 .wrapper {
   margin: 0 10rem; }
 
+/** background image **/
 header {
-  background: url("../../images/stormtroopers.jpg") no-repeat top left;
+  background: url("../images/stormtroopers.jpg") no-repeat top left;
   background-size: cover;
   padding-bottom: 15rem; }
 
+/*** navigation ***/
 .logo {
   padding: 2rem 1rem 0 0;
   display: inline-block; }
@@ -61,6 +64,7 @@ a {
 nav a:hover, .active a {
   color: #91306b; }
 
+/** form **/
 form {
   text-align: center;
   margin-top: 15rem; }
@@ -91,6 +95,7 @@ form {
       width: 4rem;
       height: 4rem; }
 
+/** search results **/
 .search-results {
   padding: 0;
   margin-top: 4rem;
@@ -98,6 +103,7 @@ form {
   background-color: #1b0914;
   display: inline-block; }
 
+/*** footer ***/
 footer {
   text-align: center;
   background-color: #1b0914;
