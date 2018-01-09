@@ -37,7 +37,7 @@ h2 {
 header {
   background: url("../../images/stormtroopers.jpg") no-repeat top left;
   background-size: cover;
-  padding-bottom: 30rem; }
+  padding-bottom: 15rem; }
 
 .logo {
   padding: 2rem 1rem 0 0;
@@ -63,28 +63,38 @@ nav a:hover, .active a {
 
 form {
   text-align: center;
-  margin-top: 5rem; }
+  margin-top: 15rem; }
   form label {
     display: inline-block;
-    margin-right: 28rem;
+    margin-right: 33rem;
     background-color: #1b0914;
     background-size: 40rem;
     padding: 0.5rem; }
-  form input[type=search] {
-    display: block;
+  form .search-box {
     margin: 0 auto;
-    width: 60rem;
+    width: 65rem;
     height: 5rem;
     font-size: 2rem; }
-
-.search-btn, .search-btn img {
-  width: 4rem;
-  height: 4rem; }
+  form input[type=search] {
+    padding-right: 5rem;
+    width: 60rem;
+    height: 5rem;
+    /* needed to avoid using default browser search box height */
+    -webkit-appearance: none;
+    float: left; }
+  form .search-btn {
+    width: 5rem;
+    height: 5rem;
+    margin: -5rem 5rem 0 0;
+    float: right; }
+    form .search-btn img {
+      width: 4rem;
+      height: 4rem; }
 
 .search-results {
   padding: 0;
   background-color: #1b0914;
-  background-size: auto; }
+  display: inline-block; }
 
 footer {
   text-align: center;
