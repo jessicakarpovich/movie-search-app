@@ -38,21 +38,22 @@ function search(e) {
     });
 }
 
+// Add event listener to search button and to search field
 var sBtn = document.querySelector('.search-btn');
 var sBox = document.querySelector('#movie-search');
 sBtn.addEventListener('click', search, false);
 sBox.addEventListener('submit', search, false);
 
 function showSearchResult(data, q) {
-    console.log(data.results[0].title);
-    console.log(data.results[0].release_date);
+    //console.log(data.results[0].title);
+    //console.log(data.results[0].release_date);
     
     var searchResults = document.querySelector('.search-results');
     var content = "<h2>Results for " + q + "</h2>";
     
     // Check that there are results before trying to load them.
-    if (!data) {
-        content += "<p id=msg>No matching results.</p>";
+    if (data.results.length < 1) {
+        content += "<div><p id=msg>No matching results.</p></div>";
     }
     
     else {

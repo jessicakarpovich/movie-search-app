@@ -3,12 +3,16 @@
   background-color: #1b0914;
   display: inline-block; }
 
+form, footer {
+  margin-top: 15rem;
+  text-align: center; }
+
 html, body, div, span, article, section,
 h1, h2, h3, h4, h5, h6, p,
 a, button,
 ol, ul, li,
-form, label, input,
-header, footer, nav {
+label, input,
+header, nav {
   margin: 0;
   padding: 0;
   font-size: 100%; }
@@ -70,35 +74,35 @@ nav a:hover, .active a {
   color: #91306b; }
 
 /** form **/
-form {
-  text-align: center;
-  margin-top: 15rem; }
-  form label {
-    display: inline-block;
-    margin-right: 33rem;
-    background-color: #1b0914;
-    background-size: 40rem;
-    padding: 0.5rem; }
-  form .search-box {
-    margin: 0 auto;
-    width: 65rem;
-    height: 5rem;
-    font-size: 2rem; }
-  form input[type=search] {
-    padding-right: 5rem;
-    width: 60rem;
-    height: 5rem;
-    /* needed to avoid using default browser search box height */
-    -webkit-appearance: none;
-    float: left; }
-  form .search-btn {
-    width: 5rem;
-    height: 5rem;
-    margin: -5rem 5rem 0 0;
-    float: right; }
-    form .search-btn img {
-      width: 4rem;
-      height: 4rem; }
+form label {
+  display: inline-block;
+  margin-right: 33rem;
+  background-color: #1b0914;
+  background-size: 40rem;
+  padding: 0.5rem; }
+
+form .search-box {
+  margin: 0 auto;
+  width: 65rem;
+  height: 5rem;
+  font-size: 2rem; }
+
+form input[type=search] {
+  padding-right: 5rem;
+  width: 60rem;
+  height: 5rem;
+  /* needed to avoid using default browser search box height */
+  -webkit-appearance: none;
+  float: left; }
+
+form .search-btn {
+  width: 5rem;
+  height: 5rem;
+  margin: -5rem 5rem 0 0;
+  float: right; }
+  form .search-btn img {
+    width: 4rem;
+    height: 4rem; }
 
 /** search results **/
 .search-results h2 {
@@ -113,7 +117,7 @@ form {
   position: relative; }
   .search-results button {
     padding: 2rem;
-    margin: 5rem 40rem;
+    margin: 5rem 37rem;
     background: #91306b;
     color: #1b0914;
     font-weight: 700;
@@ -145,7 +149,5 @@ form {
 
 /*** footer ***/
 footer {
-  text-align: center;
   background-color: #1b0914;
-  padding: 4rem 0;
-  margin-top: 10rem; }
+  padding: 4rem 0; }

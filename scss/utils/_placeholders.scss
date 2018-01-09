@@ -3,3 +3,9 @@
     background-color: $main-bg-color;
     display: inline-block;
 }
+
+// for adding top margin and centering text
+%top-margin-center {
+    margin-top: 15rem;
+    text-align: center;
+}

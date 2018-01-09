@@ -64,8 +64,7 @@ nav a:hover, .active a {
 
 /** form **/
 form {
-    text-align: center;
-    margin-top: 15rem;
+    @extend %top-margin-center;
     
     label {
         display: inline-block;
@@ -121,7 +120,7 @@ form {
     
     button {
         padding: 2rem;
-        margin: 5rem 40rem;
+        margin: 5rem 37rem;
         
         background: $highlight-color;
         color: $main-bg-color;
@@ -164,8 +163,7 @@ form {
 
 /*** footer ***/
 footer {
-    text-align: center;
     background-color: $main-bg-color;
     padding: 4rem 0;
-    margin-top: 10rem;
+    @extend %top-margin-center;
 }
