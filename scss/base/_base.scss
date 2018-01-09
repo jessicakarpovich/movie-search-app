@@ -103,13 +103,18 @@ form {
 
 
 /** search results **/
-.search-results {
-    padding: 0;
+.search-results h2 {
+    @extend %search-heading;
     margin-top: 4rem;
     margin-bottom: 2rem;
-    background-color: $main-bg-color;
-    display: inline-block;
+
 }
+
+#msg {
+    @extend %search-heading;
+    margin: 3rem 0;
+}
+
 
 
 /*** footer ***/
