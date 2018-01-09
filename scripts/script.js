@@ -1,8 +1,8 @@
 const key = "c12dc5a97d67a3d1fa95dd742012de00";
 const api_endpoint = "https://api.themoviedb.org/3/search/movie";
-const query = "Star Wars";
-const url = api_endpoint + "?api_key=" + key + "&query=" + query + "&page=1";
-
+// const query = "Star Wars";
+// const url = api_endpoint + "?api_key=" + key + "&query=" + query + "&page=1";
+/*
 // as in the examples
 fetch(url) 
     .then(response => response.json())
@@ -13,9 +13,15 @@ fetch(url)
         console.log(error);
 });
 
-// figure out why the search function doesn't work as expected
-/*
-function search() {
+// 
+
+*/
+
+// prevent default form action to avoid encountering 
+//  "NetworkError when attempting to fetch resource"
+function search(e) {
+    e.preventDefault();
+    
     var query = document.querySelector('#movie-search').value;
     console.log(query);
     var url = api_endpoint + "?api_key=" + key + "&query=" + query + "&page=1";
@@ -25,13 +31,13 @@ function search() {
         .then(response => response.json())
         .then(results => {
             console.log(results);
-       // showSearchResult(results, query);
+        showSearchResult(results, query);
         })
         .catch(function(error) {
             console.log(error);
     });
 }
-*/
+
 var sBtn = document.querySelector('.search-btn');
 var sBox = document.querySelector('#movie-search');
 sBtn.addEventListener('click', search, false);
