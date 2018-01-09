@@ -1,0 +1,93 @@
+// general
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $font-family-text;
+    font-size: $font-size-default;
+    color: $text-color;
+}
+
+h1, h2 {
+    font-size: $font-size-heading;
+    font-weight: 900;
+}
+
+h2 {
+    font-family: $font-family-caption;
+}
+
+.wrapper {
+    margin: 0 10rem;
+}
+
+// background image
+header {
+    background: url('../../images/stormtroopers.jpg') 
+        no-repeat top left;
+    background-size: cover;
+    padding-bottom: 30rem;
+}
+
+// form
+form {
+    text-align: center;
+}
+
+// navigation
+.logo img {
+    height: 3rem;
+    width: 3rem;
+    float: left;
+    margin-right: 0.5rem;
+}
+
+.logo {
+    padding: 2rem 1rem 0 0;
+}
+
+
+
+nav ul {
+    float: right;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+a {
+    color: $text-color;
+}
+
+nav a:hover, .active a {
+    color: $highlight-color;
+}
+
+// search field
+form {
+    margin-top: 5rem;
+}
+
+.search-btn, .search-btn img {
+    width: 3rem;
+    height: 3rem;
+}
+
+// search results
+.search-results {
+    padding: 0;
+    background-color: $main-bg-color;
+    background-size: auto;
+}
+
+
+// footer
+footer {
+    text-align: center;
+    background-color: $main-bg-color;
+    padding: 4rem 0;
+    margin-top: 10rem;
+}
