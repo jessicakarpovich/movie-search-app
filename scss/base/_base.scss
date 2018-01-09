@@ -30,33 +30,30 @@ header {
     padding-bottom: 30rem;
 }
 
-// form
-form {
-    text-align: center;
-}
-
 // navigation
-.logo img {
-    height: 3rem;
-    width: 3rem;
-    float: left;
-    margin-right: 0.5rem;
-}
-
 .logo {
     padding: 2rem 1rem 0 0;
+    display: inline-block;
+    
+    img {
+        @include wh(3rem, 3rem);
+        float: left;
+        margin-right: 0.5rem;
+    }
 }
-
 
 
 nav ul {
     float: right;
+    padding: 2.5rem 1rem 0 0;
+
+
+    li {
+        display: inline-block;
+        margin: 0 0.5rem;
+    }
 }
 
-nav li {
-    display: inline-block;
-    margin: 0 0.5rem;
-}
 
 a {
     color: $text-color;
@@ -66,15 +63,31 @@ nav a:hover, .active a {
     color: $highlight-color;
 }
 
-// search field
+// form
 form {
+    text-align: center;
     margin-top: 5rem;
+    
+    label {
+        display: inline-block;
+        margin-right: 28rem;
+        background-color: $main-bg-color;
+        background-size: 40rem;
+        padding: 0.5rem;
+    }
+    
+    input[type=search] {
+        display: block;
+        margin: 0 auto;
+        @include wh(60rem, 5rem);
+        font-size: $font-size-heading;
+    }
+}
+// fix positioning
+.search-btn, .search-btn img {
+    @include wh(4rem, 4rem);
 }
 
-.search-btn, .search-btn img {
-    width: 3rem;
-    height: 3rem;
-}
 
 // search results
 .search-results {
