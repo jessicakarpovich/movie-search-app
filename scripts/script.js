@@ -2,36 +2,21 @@ const key = "c12dc5a97d67a3d1fa95dd742012de00";
 const api_endpoint = "https://api.themoviedb.org/3/search/movie";
 // const query = "Star Wars";
 // const url = api_endpoint + "?api_key=" + key + "&query=" + query + "&page=1";
-/*
-// as in the examples
-fetch(url) 
-    .then(response => response.json())
-    .then(results => {
-        console.log(results);
-    })
-    .catch(function(error) {
-        console.log(error);
-});
 
-// 
-
-*/
 
 // prevent default form action to avoid encountering 
 //  "NetworkError when attempting to fetch resource"
 function search(e) {
     e.preventDefault();
     
-    var query = document.querySelector('#movie-search').value;
-    console.log(query);
-    var url = api_endpoint + "?api_key=" + key + "&query=" + query + "&page=1";
+    const query = document.querySelector('#movie-search').value;
+    const url = api_endpoint + "?api_key=" + key + "&query=" + query + "&page=1";
 
 
     fetch(url) 
         .then(response => response.json())
         .then(results => {
-            console.log(results);
-        showSearchResult(results, query);
+            showSearchResult(results, query);
         })
         .catch(function(error) {
             console.log(error);
@@ -39,17 +24,14 @@ function search(e) {
 }
 
 // Add event listener to search button and to search field
-var sBtn = document.querySelector('.search-btn');
-var sBox = document.querySelector('#movie-search');
+const sBtn = document.querySelector('.search-btn');
+const sBox = document.querySelector('#movie-search');
 sBtn.addEventListener('click', search, false);
 sBox.addEventListener('submit', search, false);
 
 function showSearchResult(data, q) {
-    //console.log(data.results[0].title);
-    //console.log(data.results[0].release_date);
-    
-    var searchResults = document.querySelector('.search-results');
-    var content = "<h2>Results for " + q + "</h2>";
+    const searchResults = document.querySelector('.search-results');
+    let content = "<h2>Results for " + q + "</h2>";
     
     // Check that there are results before trying to load them.
     if (data.results.length < 1) {
@@ -59,7 +41,7 @@ function showSearchResult(data, q) {
     else {
         content += "<section class=\'movies\'>";
 
-        for (var i=0; i < data.results.length; i++) {
+        for (let i=0; i < data.results.length; i++) {
             content += "<article>";
             content += "<img src=https://image.tmdb.org/t/p/w300_and_h450_bestv2" + data.results[i].backdrop_path + " alt=\'" + data.results[i].title + "\'>";
 
