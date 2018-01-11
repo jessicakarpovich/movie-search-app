@@ -34,39 +34,97 @@ body {
   font-family: "PT Sans", sans-serif;
   font-size: 1.4rem;
   color: #fcf8f7; }
+  @media (min-width: 300px) {
+    body {
+      font-size: 2rem; } }
 
 h1, h2 {
   font-size: 2rem;
   font-weight: 900; }
+  @media (min-width: 300px) {
+    h1, h2 {
+      font-size: 2.5rem; } }
 
 h2 {
   font-family: "PT Sans Caption", sans-serif; }
 
 .wrapper {
-  margin: 0 10rem; }
+  margin: 0 10%; }
 
 /** background image **/
 header {
   background: url("../images/stormtroopers.jpg") no-repeat top left;
-  background-size: cover;
+  background-size: contain;
   padding-bottom: 15rem; }
 
 /*** navigation ***/
 .logo {
-  padding: 2rem 1rem 0 0;
-  display: inline-block; }
-  .logo img {
-    width: 3rem;
-    height: 3rem;
-    float: left;
-    margin-right: 0.5rem; }
+  padding: 2rem 1rem 0 0; }
+  .logo a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .logo a img {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 0.5rem; }
 
-nav ul {
-  float: right;
-  padding: 2.5rem 1rem 0 0; }
-  nav ul li {
-    display: inline-block;
-    margin: 0 0.5rem; }
+@media (min-width: 300px) {
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .logo {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  span {
+    text-indent: -999rem;
+    background: url("../images/CloseIcon.png") no-repeat top right;
+    background-size: cover;
+    width: 6rem;
+    height: 6rem; }
+  ul {
+    text-indent: -999rem; } }
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.expanded-menu {
+  background: #1b0914;
+  height: 4rem;
+  /* Undo the text indent */ }
+  .expanded-menu .logo {
+    position: absolute;
+    left: -999rem; }
+  .expanded-menu form {
+    position: absolute;
+    left: -999rem; }
+  .expanded-menu ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-indent: 0; }
+  .expanded-menu nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end; }
+  .expanded-menu .menu-icon {
+    text-indent: -999rem;
+    background: url("../images/CloseIcon.png") no-repeat top right;
+    background-size: cover;
+    width: 6rem;
+    height: 6rem; }
 
 a {
   color: #fcf8f7; }
@@ -152,8 +210,3 @@ form .search-btn {
 footer {
   background-color: #1b0914;
   padding: 4rem 0; }
-
-input {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none; }

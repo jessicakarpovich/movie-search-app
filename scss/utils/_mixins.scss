@@ -3,3 +3,9 @@
     width: $width;
     height: $height;
 }
+
+@mixin mq($size) {
+    @if $size == small {
+        @media (min-width: 300px) { @content; }
+    }
+}

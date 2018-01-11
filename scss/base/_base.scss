@@ -7,11 +7,19 @@ body {
     font-family: $font-family-text;
     font-size: $font-size-default;
     color: $text-color;
+    
+    @include mq(small) {
+        font-size: $font-size-small;
+    }
 }
 
 h1, h2 {
     font-size: $font-size-heading;
     font-weight: 900;
+    
+    @include mq(small) {
+        font-size: $font-size-small-h;
+    }
 }
 
 h2 {
@@ -19,7 +27,7 @@ h2 {
 }
 
 .wrapper {
-    margin: 0 10rem;
+    margin: 0 10%;
 }
 
 
@@ -27,30 +35,87 @@ h2 {
 header {
     background: url('../images/stormtroopers.jpg') 
         no-repeat top left;
-    background-size: cover;
+    background-size: contain;
     padding-bottom: 15rem;
 }
 
 /*** navigation ***/
 .logo {
     padding: 2rem 1rem 0 0;
-    display: inline-block;
     
-    img {
-        @include wh(3rem, 3rem);
-        float: left;
-        margin-right: 0.5rem;
+    a {
+        display: flex;
+        img {
+            @include wh(3rem, 3rem);
+            margin-right: 0.5rem;
+        }
     }
 }
 
+@include mq(small) {
+    nav {
+        display: flex;
+    }
+    .logo {
+        justify-content: center;
+    }
+    span {
+        text-indent: -999rem;
+        background: url('../images/CloseIcon.png')
+            no-repeat top right;
+        background-size: cover;
+        @include wh(6rem, 6rem);
+    }
+    ul {
+        text-indent: -999rem;
+    }
+}
+
+nav {
+    display: flex;
+}
+
+
+
 nav ul {
-    float: right;
-    padding: 2.5rem 1rem 0 0;
+   // text-indent: -999rem;
+    //justify-content: flex-end;
+   // padding: 2.5rem 1rem 0 0;
 
 
     li {
-        display: inline-block;
-        margin: 0 0.5rem;
+      //  display: inline-block;
+       // margin: 0 0.5rem;
+    }
+}
+
+.expanded-menu {
+    background: $main-bg-color;
+    height: 4rem;
+    .logo {
+        position: absolute;
+        left: -999rem;
+    }
+    form {
+        position: absolute;
+        left: -999rem;
+    }
+    /* Undo the text indent */
+    ul {
+        display: flex;
+        flex-direction: column;
+        text-indent: 0;
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .menu-icon {
+        text-indent: -999rem;
+        background: url('../images/CloseIcon.png')
+            no-repeat top right;
+        background-size: cover;
+        @include wh(6rem, 6rem);
     }
 }
 
@@ -166,9 +231,4 @@ footer {
     background-color: $main-bg-color;
     padding: 4rem 0;
     @extend %top-margin-center;
-}
-
-// test autoprefixer
-input {
-    appearance: none;
 }
