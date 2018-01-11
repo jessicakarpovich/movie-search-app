@@ -56,3 +56,18 @@ function showSearchResult(data, q) {
     
     searchResults.innerHTML = content;
 }
+
+/* Primarily for mobile screens */
+// Small screen size menu click - expand menu 
+function expandMenu() {
+    const header = document.querySelector('header');
+    
+    if (header.classList.contains('expanded-menu')) {
+        header.classList.remove('expanded-menu');
+    } else {
+        header.classList.add('expanded-menu');
+    }
+}
+
+const menuIcon = document.querySelector('.menu-icon');
+menuIcon.addEventListener('click', expandMenu, false);

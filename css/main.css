@@ -80,7 +80,7 @@ header {
             justify-content: center; }
   span {
     text-indent: -999rem;
-    background: url("../images/CloseIcon.png") no-repeat top right;
+    background: url("../images/HamburgerMenu.png") no-repeat top right;
     background-size: cover;
     width: 6rem;
     height: 6rem; }
