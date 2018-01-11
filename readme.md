@@ -22,11 +22,13 @@ Before you get started, check to make sure you have Sass, nvm, node, gulp, and g
 
 
 ## Optional Steps ##
-If you plan on making changes to the sass files, run `gulp watch` in the terminal to have the CSS immediately updated. 
+1. If you plan on making changes to the sass files, run `gulp watch` in the terminal to have the CSS immediately updated. 
 
 -*Note:* Before using the above command, you may need to install Browsersync, or to remove some code from the gulpfile. 
 
 Browsersync allows you to see your changes applied live in your browser. To install it go [here](https://browsersync.io/#install).
+
+2. To use Autoprefixer, to add vendor prefixes to CSS, install [gulp-postcss](https://github.com/postcss/gulp-postcss) and [Autoprefixer](https://github.com/postcss/autoprefixer) by using `npm install gulp-postcss autoprefixer` in your project directory.
 
 
 # Current Functionality #

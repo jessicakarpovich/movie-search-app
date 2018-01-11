@@ -167,3 +167,8 @@ footer {
     padding: 4rem 0;
     @extend %top-margin-center;
 }
+
+// test autoprefixer
+input {
+    appearance: none;
+}

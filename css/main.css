@@ -23,7 +23,8 @@ ul {
   margin: 0; }
 
 a {
-  text-decoration-line: none; }
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none; }
 
 /*** general ***/
 html {
@@ -151,3 +152,8 @@ form .search-btn {
 footer {
   background-color: #1b0914;
   padding: 4rem 0; }
+
+input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
