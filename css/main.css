@@ -1,10 +1,9 @@
 .search-results h2, #msg {
   padding: 0.5rem;
-  background-color: #1b0914;
-  display: inline-block; }
+  background-color: #1b0914; }
 
-form, footer {
-  margin-top: 15rem;
+footer {
+  margin-top: 5%;
   text-align: center; }
 
 html, body, div, span, article, section,
@@ -27,10 +26,28 @@ a {
           text-decoration-line: none; }
 
 /*** general ***/
+/* sticky footer with flexbox solution adapted from 
+ * https://css-tricks.com/couple-takes-sticky-footer/ */
+html, body {
+  height: 100%; }
+
+header, .search-results {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto; }
+
 html {
   font-size: 62.5%; }
 
 body {
+  /* this is to have a sticky footer */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-family: "PT Sans", sans-serif;
   font-size: 1.4rem;
   color: #fcf8f7; }
@@ -76,16 +93,16 @@ header {
   nav {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end; }
+    display: flex; }
+  .logo {
+    margin: auto; }
   span {
     text-indent: -999rem;
     background: url("../images/HamburgerMenu.png") no-repeat top right;
     background-size: cover;
     width: 6rem;
-    height: 6rem; }
+    height: 6rem;
+    margin-left: auto; }
   ul {
     text-indent: -999rem; } }
 
@@ -176,38 +193,60 @@ form .search-btn {
 
 /** search results **/
 .search-results h2 {
-  margin-top: 4rem;
-  margin-bottom: 2rem; }
+  margin-top: 4%;
+  margin-bottom: 2%; }
 
 #msg {
-  margin: 3rem 0; }
+  margin: 4% 0; }
 
-.search-results {
-  overflow: auto;
-  position: relative; }
-  .search-results button {
-    padding: 2rem;
-    margin: 5rem 37rem;
-    background: #91306b;
-    color: #1b0914;
-    font-weight: 700;
-    font-family: "PT Sans Caption", sans-serif;
-    border-radius: 1rem;
-    border-style: none; }
+.search-results button {
+  padding: 2rem;
+  background: #91306b;
+  color: #1b0914;
+  font-weight: 700;
+  font-family: "PT Sans Caption", sans-serif;
+  border-radius: 1rem;
+  border-style: none; }
+
+@media (min-width: 300px) and (max-width: 600px) {
+  .search-results {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin: 0; }
+    .search-results article {
+      margin: 2% 5%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .search-results article img {
+        width: 20%;
+        height: 20%; }
+    .search-results .text-container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column; }
+    .search-results button {
+      margin: 7% auto 2% auto;
+      width: 90%; } }
 
 /* aiming for 3 column layout
 *  fixed max-width means it becomes 4 columns on larger displays */
 .search-results article {
-  width: calc(100% / 3);
-  float: left;
   padding: 0;
-  margin: 1rem 1rem 1rem 0;
   font-family: "PT Sans Caption", sans-serif;
-  background-color: #1b0914;
-  max-width: 30rem; }
-  .search-results article img {
-    width: 30rem;
-    height: 45rem; }
+  background-color: #1b0914; }
   .search-results article h3 {
     color: #91306b;
     font-size: 1.5rem;

@@ -45,13 +45,13 @@ function showSearchResult(data, q) {
             content += "<article>";
             content += "<img src=https://image.tmdb.org/t/p/w300_and_h450_bestv2" + data.results[i].backdrop_path + " alt=\'" + data.results[i].title + "\'>";
 
-            content += "<h3>" + data.results[i].title + "</h3>";
-            content += "<p>" + data.results[i].release_date + "</p>";
+            content += "<div class=\"text-container\"><h3>" + data.results[i].title + "</h3>";
+            content += "<p>" + data.results[i].release_date + "</p></div>";
             content += "</article>";
         }
 
-        content += "<button>See more on Hulu</button>";
         content += "</section>";
+        content += "<button>See more on Hulu</button>";
     }
     
     searchResults.innerHTML = content;

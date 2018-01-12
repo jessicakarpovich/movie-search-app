@@ -1,9 +1,22 @@
 /*** general ***/
+/* sticky footer with flexbox solution adapted from 
+ * https://css-tricks.com/couple-takes-sticky-footer/ */
+html, body {
+    height: 100%;
+}
+header, .search-results {
+    flex: 1 0 auto;
+}
+
 html {
     font-size: 62.5%;
 }
 
 body {
+    /* this is to have a sticky footer */
+    display: flex;
+    flex-direction: column;
+    
     font-family: $font-family-text;
     font-size: $font-size-default;
     color: $text-color;
@@ -60,7 +73,10 @@ header {
 @include mq(small) {
     nav {
         display: flex;
-        justify-content: flex-end;
+    }
+    
+    .logo {
+        margin: auto;
     }
     
     span {
@@ -69,6 +85,8 @@ header {
             no-repeat top right;
         background-size: cover;
         @include wh(6rem, 6rem);
+        // keep it to the right in the nav bar
+        margin-left: auto;
     }
     ul {
         text-indent: -999rem;
@@ -140,7 +158,7 @@ nav a:hover, .active a {
 /** form **/
 
 form {
-    @extend %top-margin-center;
+ //   @extend %top-margin-center;
     
     label {
       //  display: inline-block;
@@ -177,8 +195,8 @@ form {
     }
 }
 
-// Finish this
 
+// Small screen form layout in header
 @include mq(small) {
     form {
         margin-top: 7%;
@@ -210,23 +228,23 @@ form {
 /** search results **/
 .search-results h2 {
     @extend %search-heading;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
+    margin-top: 4%;
+    margin-bottom: 2%;
 
 }
 
 #msg {
     @extend %search-heading;
-    margin: 3rem 0;
+    margin: 4% 0;
 }
 
 .search-results {
-    overflow: auto;
-    position: relative;
+   // overflow: auto;
+    //position: relative;
     
     button {
         padding: 2rem;
-        margin: 5rem 37rem;
+       // margin: 5rem 37rem;
         
         background: $highlight-color;
         color: $main-bg-color;
@@ -239,19 +257,46 @@ form {
     }
 }
 
+@include mq(small) {
+    .search-results {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin: 0;
+        
+        article {
+            margin: 2% 5%;
+            display: flex;
+            
+            img {
+                @include wh(20%, 20%);
+            }
+        }
+        .text-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        button {
+            margin: 7% auto 2% auto;
+            width: 90%;
+        }
+    }
+}
+
 /* aiming for 3 column layout
 *  fixed max-width means it becomes 4 columns on larger displays */
 .search-results article {
-    width: calc(100% / 3);
-    float: left;
+  //  width: calc(100% / 3);
+//    float: left;
     padding: 0;
-    margin: 1rem 1rem 1rem 0;
+  //  margin: 1rem 1rem 1rem 0;
     font-family: $font-family-caption;
     background-color: $main-bg-color;
-    max-width: 30rem;
+//    max-width: 30rem;
     
     img {
-        @include wh(30rem, 45rem);
+      //  @include wh(30rem, 45rem);
     }
     
     h3 {
