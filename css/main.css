@@ -51,14 +51,11 @@ body {
   font-family: "PT Sans", sans-serif;
   font-size: 1.4rem;
   color: #fcf8f7; }
-  @media (min-width: 300px) and (max-width: 600px) {
-    body {
-      font-size: 1rem; } }
 
 h1, h2 {
   font-size: 2rem;
   font-weight: 900; }
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: 493px) {
     h1, h2 {
       font-size: 2.5rem; } }
 
@@ -72,7 +69,7 @@ h2 {
 header {
   background: url("../images/stormtroopers.jpg") no-repeat top left;
   background-size: cover; }
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: 493px) {
     header {
       background-size: cover;
       padding-bottom: 5%; } }
@@ -89,23 +86,43 @@ header {
       height: 3rem;
       margin-right: 0.5rem; }
 
-@media (min-width: 300px) and (max-width: 600px) {
-  nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; }
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+span {
+  text-indent: -999rem; }
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  padding: 2.5rem 1rem 0 0; }
+  nav ul li {
+    margin: 0 0.5rem; }
+
+a {
+  color: #fcf8f7; }
+
+nav a:hover, .active a {
+  color: #91306b; }
+
+/* Hamburger menu on small screens */
+@media (min-width: 300px) and (max-width: 493px) {
   .logo {
     margin: auto; }
   span {
-    text-indent: -999rem;
     background: url("../images/HamburgerMenu.png") no-repeat top right;
     background-size: cover;
     width: 6rem;
     height: 6rem;
     margin-left: auto; }
-  ul {
-    text-indent: -999rem; } }
+  ul, li {
+    display: none; } }
 
+/* Expanded hamburger menu on small screens */
 .expanded-menu {
   background: #1b0914;
   /* Move logo and search field off screen */
@@ -126,7 +143,8 @@ header {
             flex-direction: column;
     text-indent: 0; }
   .expanded-menu li {
-    font-size: 2.5rem; }
+    font-size: 2.5rem;
+    display: inherit; }
   .expanded-menu nav {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -142,54 +160,58 @@ header {
     width: 6rem;
     height: 6rem; }
 
-a {
-  color: #fcf8f7; }
-
-nav a:hover, .active a {
-  color: #91306b; }
-
 /** form **/
-form label {
-  background-color: #1b0914;
-  padding: 0.5rem; }
-
-form .search-box {
-  font-size: 2rem; }
-
-form input[type=search] {
-  /* needed to avoid using default browser search box height */
-  -webkit-appearance: none; }
-
-form .search-btn {
-  width: 5rem;
-  height: 5rem; }
-  form .search-btn img {
-    width: 4rem;
-    height: 4rem; }
-
-@media (min-width: 300px) and (max-width: 600px) {
-  form {
-    margin-top: 7%;
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  form label {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    margin-top: 7%;
+    background-color: #1b0914;
+    padding: 0.5rem; }
+  form .search-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 2rem;
+    width: 70%;
+    height: 5rem; }
+  form input[type=search] {
+    padding-right: 5rem;
+    width: 100%;
+    height: 5rem;
+    /* needed to avoid using default browser search box height */
+    -webkit-appearance: none; }
+  form .search-btn {
+    width: 5rem;
+    height: 5rem;
+    margin-left: -5rem; }
+    form .search-btn img {
+      width: 4rem;
+      height: 4rem; }
+
+/* Small screen form layout in header */
+@media (min-width: 300px) and (max-width: 493px) {
+  form {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; }
     form label {
-      font-size: 1rem; }
+      font-size: 1.2rem; }
     form .search-box {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex; }
-    form input[type=search] {
-      padding-right: 5rem;
-      width: 100%;
-      height: 5rem; }
-    form .search-btn {
-      margin: 0 0 0 -5rem; } }
+      font-size: 1.7rem; } }
 
 /** search results **/
 .search-results h2 {
@@ -199,16 +221,23 @@ form .search-btn {
 #msg {
   margin: 4% 0; }
 
-.search-results button {
-  padding: 2rem;
-  background: #91306b;
-  color: #1b0914;
-  font-weight: 700;
-  font-family: "PT Sans Caption", sans-serif;
-  border-radius: 1rem;
-  border-style: none; }
+.search-results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap; }
+  .search-results button {
+    padding: 2rem;
+    margin: 7% auto 2% auto;
+    background: #91306b;
+    color: #1b0914;
+    font-weight: 700;
+    font-family: "PT Sans Caption", sans-serif;
+    border-radius: 1rem;
+    border-style: none; }
 
-@media (min-width: 300px) and (max-width: 600px) {
+@media (min-width: 300px) and (max-width: 493px) {
   .search-results {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -238,7 +267,6 @@ form .search-btn {
           -ms-flex-direction: column;
               flex-direction: column; }
     .search-results button {
-      margin: 7% auto 2% auto;
       width: 90%; } }
 
 /* aiming for 3 column layout

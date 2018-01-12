@@ -20,10 +20,6 @@ body {
     font-family: $font-family-text;
     font-size: $font-size-default;
     color: $text-color;
-    
-    @include mq(small) {
-        font-size: $font-size-small;
-    }
 }
 
 h1, h2 {
@@ -70,17 +66,40 @@ header {
     }
 }
 
-@include mq(small) {
-    nav {
-        display: flex;
+nav {
+    display: flex;
+}
+
+span {
+    text-indent: -999rem;
+}
+
+nav ul {
+    display: flex;
+    margin-left: auto;
+    padding: 2.5rem 1rem 0 0;
+
+
+    li {
+        margin: 0 0.5rem;
     }
-    
+}
+
+a {
+    color: $text-color;
+}
+
+nav a:hover, .active a {
+    color: $highlight-color;
+}
+
+/* Hamburger menu on small screens */
+@include mq(small) {
     .logo {
         margin: auto;
     }
     
     span {
-        text-indent: -999rem;
         background: url('../images/HamburgerMenu.png')
             no-repeat top right;
         background-size: cover;
@@ -88,28 +107,12 @@ header {
         // keep it to the right in the nav bar
         margin-left: auto;
     }
-    ul {
-        text-indent: -999rem;
+    ul, li {
+        display: none;
     }
 }
 
-nav {
-    //display: flex;
-}
-
-nav ul {
-   // text-indent: -999rem;
-   // display: flex;
-    //justify-content: flex-end;
-   // padding: 2.5rem 1rem 0 0;
-
-
-    li {
-      //  display: inline-block;
-       // margin: 0 0.5rem;
-    }
-}
-
+/* Expanded hamburger menu on small screens */
 .expanded-menu {
     background: $main-bg-color;
 
@@ -132,6 +135,7 @@ nav ul {
     
     li {
         font-size: $font-size-small-h;
+        display: inherit;
     }
     
     nav {
@@ -147,47 +151,37 @@ nav ul {
     }
 }
 
-a {
-    color: $text-color;
-}
-
-nav a:hover, .active a {
-    color: $highlight-color;
-}
-
 /** form **/
 
 form {
- //   @extend %top-margin-center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
     label {
-      //  display: inline-block;
-       // margin-right: 33rem;
+        display: flex;
+        margin-top: 7%;
         background-color: $main-bg-color;
-       // background-size: 40rem;
         padding: 0.5rem;
     }
     
     .search-box {
-      //  margin: 0 auto;
-       // @include wh(65rem, 5rem);
+        display: flex;
         font-size: $font-size-heading;
+        @include wh(70%, 5rem);
     }
     
     input[type=search] {
-       // padding-right: 5rem;
-     //   @include wh(60rem, 5rem);
+        padding-right: 5rem;
+        @include wh(100%, 5rem);
         
         /* needed to avoid using default browser search box height */
-
         -webkit-appearance: none;
-       // float: left;
     }    
     
     .search-btn {
         @include wh(5rem, 5rem);
-        //margin: -5rem 5rem 0 0;
-       // float: right;
+        margin-left: -5rem;
     
         img {
             @include wh(4rem, 4rem);
@@ -195,33 +189,20 @@ form {
     }
 }
 
-
-// Small screen form layout in header
+/* Small screen form layout in header */
 @include mq(small) {
     form {
-        margin-top: 7%;
-        display: flex;
         flex-wrap: wrap;
         justify-content: center;
           
         label {
-       // margin-right: 0;
-        font-size: $font-size-small;
+            font-size: $font-size-small;
         }
         
         .search-box {
-            display: flex;
-        }
-        
-        input[type=search] {
-            padding-right: 5rem;
-            @include wh(100%, 5rem);
-        }
-        .search-btn {
-            margin: 0 0 0 -5rem;
-        }
-    }
-        
+            font-size: $font-size-input;
+        }   
+    }        
 }
 
 
@@ -239,12 +220,12 @@ form {
 }
 
 .search-results {
-   // overflow: auto;
-    //position: relative;
+    display: flex;
+    flex-flow: wrap;
     
     button {
         padding: 2rem;
-       // margin: 5rem 37rem;
+        margin: 7% auto 2% auto;
         
         background: $highlight-color;
         color: $main-bg-color;
@@ -278,7 +259,6 @@ form {
         }
         
         button {
-            margin: 7% auto 2% auto;
             width: 90%;
         }
     }
