@@ -35,8 +35,13 @@ h2 {
 header {
     background: url('../images/stormtroopers.jpg') 
         no-repeat top left;
-    background-size: contain;
-    padding-bottom: 15rem;
+    background-size: cover;
+   // padding-bottom: 15rem;
+    
+    @include mq(small) {
+        background-size: cover;
+        padding-bottom: 5%;
+    }
 }
 
 /*** navigation ***/
@@ -55,10 +60,9 @@ header {
 @include mq(small) {
     nav {
         display: flex;
+        justify-content: flex-end;
     }
-    .logo {
-        justify-content: center;
-    }
+    
     span {
         text-indent: -999rem;
         background: url('../images/HamburgerMenu.png')
@@ -72,13 +76,12 @@ header {
 }
 
 nav {
-    display: flex;
+    //display: flex;
 }
-
-
 
 nav ul {
    // text-indent: -999rem;
+   // display: flex;
     //justify-content: flex-end;
    // padding: 2.5rem 1rem 0 0;
 
@@ -91,7 +94,8 @@ nav ul {
 
 .expanded-menu {
     background: $main-bg-color;
-    height: 4rem;
+
+    /* Move logo and search field off screen */
     .logo {
         position: absolute;
         left: -999rem;
@@ -100,12 +104,18 @@ nav ul {
         position: absolute;
         left: -999rem;
     }
+    
     /* Undo the text indent */
     ul {
         display: flex;
         flex-direction: column;
         text-indent: 0;
     }
+    
+    li {
+        font-size: $font-size-small-h;
+    }
+    
     nav {
         flex-direction: column;
         align-items: flex-end;
@@ -128,41 +138,72 @@ nav a:hover, .active a {
 }
 
 /** form **/
+
 form {
     @extend %top-margin-center;
     
     label {
-        display: inline-block;
-        margin-right: 33rem;
+      //  display: inline-block;
+       // margin-right: 33rem;
         background-color: $main-bg-color;
-        background-size: 40rem;
+       // background-size: 40rem;
         padding: 0.5rem;
     }
     
     .search-box {
-        margin: 0 auto;
-        @include wh(65rem, 5rem);
+      //  margin: 0 auto;
+       // @include wh(65rem, 5rem);
         font-size: $font-size-heading;
     }
     
     input[type=search] {
-        padding-right: 5rem;
-        @include wh(60rem, 5rem);
+       // padding-right: 5rem;
+     //   @include wh(60rem, 5rem);
         
         /* needed to avoid using default browser search box height */
+
         -webkit-appearance: none;
-        float: left;
+       // float: left;
     }    
     
     .search-btn {
         @include wh(5rem, 5rem);
-        margin: -5rem 5rem 0 0;
-        float: right;
+        //margin: -5rem 5rem 0 0;
+       // float: right;
     
         img {
             @include wh(4rem, 4rem);
         }
     }
+}
+
+// Finish this
+
+@include mq(small) {
+    form {
+        margin-top: 7%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+          
+        label {
+       // margin-right: 0;
+        font-size: $font-size-small;
+        }
+        
+        .search-box {
+            display: flex;
+        }
+        
+        input[type=search] {
+            padding-right: 5rem;
+            @include wh(100%, 5rem);
+        }
+        .search-btn {
+            margin: 0 0 0 -5rem;
+        }
+    }
+        
 }
 
 

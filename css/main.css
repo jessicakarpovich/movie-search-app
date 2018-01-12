@@ -34,14 +34,14 @@ body {
   font-family: "PT Sans", sans-serif;
   font-size: 1.4rem;
   color: #fcf8f7; }
-  @media (min-width: 300px) {
+  @media (min-width: 300px) and (max-width: 600px) {
     body {
-      font-size: 2rem; } }
+      font-size: 1rem; } }
 
 h1, h2 {
   font-size: 2rem;
   font-weight: 900; }
-  @media (min-width: 300px) {
+  @media (min-width: 300px) and (max-width: 600px) {
     h1, h2 {
       font-size: 2.5rem; } }
 
@@ -54,8 +54,11 @@ h2 {
 /** background image **/
 header {
   background: url("../images/stormtroopers.jpg") no-repeat top left;
-  background-size: contain;
-  padding-bottom: 15rem; }
+  background-size: cover; }
+  @media (min-width: 300px) and (max-width: 600px) {
+    header {
+      background-size: cover;
+      padding-bottom: 5%; } }
 
 /*** navigation ***/
 .logo {
@@ -69,15 +72,14 @@ header {
       height: 3rem;
       margin-right: 0.5rem; }
 
-@media (min-width: 300px) {
+@media (min-width: 300px) and (max-width: 600px) {
   nav {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
-  .logo {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end; }
   span {
     text-indent: -999rem;
     background: url("../images/HamburgerMenu.png") no-repeat top right;
@@ -87,14 +89,9 @@ header {
   ul {
     text-indent: -999rem; } }
 
-nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
 .expanded-menu {
   background: #1b0914;
-  height: 4rem;
+  /* Move logo and search field off screen */
   /* Undo the text indent */ }
   .expanded-menu .logo {
     position: absolute;
@@ -111,6 +108,8 @@ nav {
         -ms-flex-direction: column;
             flex-direction: column;
     text-indent: 0; }
+  .expanded-menu li {
+    font-size: 2.5rem; }
   .expanded-menu nav {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -134,34 +133,46 @@ nav a:hover, .active a {
 
 /** form **/
 form label {
-  display: inline-block;
-  margin-right: 33rem;
   background-color: #1b0914;
-  background-size: 40rem;
   padding: 0.5rem; }
 
 form .search-box {
-  margin: 0 auto;
-  width: 65rem;
-  height: 5rem;
   font-size: 2rem; }
 
 form input[type=search] {
-  padding-right: 5rem;
-  width: 60rem;
-  height: 5rem;
   /* needed to avoid using default browser search box height */
-  -webkit-appearance: none;
-  float: left; }
+  -webkit-appearance: none; }
 
 form .search-btn {
   width: 5rem;
-  height: 5rem;
-  margin: -5rem 5rem 0 0;
-  float: right; }
+  height: 5rem; }
   form .search-btn img {
     width: 4rem;
     height: 4rem; }
+
+@media (min-width: 300px) and (max-width: 600px) {
+  form {
+    margin-top: 7%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    form label {
+      font-size: 1rem; }
+    form .search-box {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+    form input[type=search] {
+      padding-right: 5rem;
+      width: 100%;
+      height: 5rem; }
+    form .search-btn {
+      margin: 0 0 0 -5rem; } }
 
 /** search results **/
 .search-results h2 {
