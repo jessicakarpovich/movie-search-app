@@ -9,10 +9,14 @@
         @media (min-width: 300px) and (max-width: 493px) { @content; }
     }
     @elseif $size == medium {
-        @media (min-width: 493px) and (max-width: 900px) { @content; }
+        @media (min-width: 494px) and (max-width: 899px) { @content; }
     }
     // This one works for all screens above medium size
     @elseif $size == large {
         @media (min-width: 900px) { @content; }
+    }
+    // For overlapping medium and large rules
+    @elseif $size == med-up {
+        @media (min-width: 494px) { @content; }
     }
 }

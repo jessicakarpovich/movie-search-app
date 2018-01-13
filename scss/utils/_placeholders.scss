@@ -8,3 +8,14 @@
     margin-top: 1rem;
     text-align: center;
 }
+
+// to move elements off screen
+%off-screen {
+    position: absolute;
+    left: -999rem;
+}
+
+%flex-column {
+    display: flex;
+    flex-direction: column;
+}

@@ -14,8 +14,7 @@ html {
 
 body {
     /* this is to have a sticky footer */
-    display: flex;
-    flex-direction: column;
+    @extend %flex-column;
     
     font-family: $font-family-text;
     font-size: $font-size-default;
@@ -64,29 +63,29 @@ header {
 nav {
     display: flex;
     
-    span {
-        text-indent: -999rem;
+    ul {
+        display: flex;
+        margin-left: auto;
+        padding: 1.5rem 1rem 0 0;
     }
-}
-
-nav ul {
-    display: flex;
-    margin-left: auto;
-    padding: 1.5rem 1rem 0 0;
-
 
     li {
         margin: 0 0.5rem;
         padding-top: 1rem;
     }
+    
+    span {
+        text-indent: -999rem;
+    }
 }
 
+/* link text color */
 a {
     color: $text-color;
-}
-
-nav a:hover, .active a {
-    color: $highlight-color;
+    
+    &:hover, .active & {
+        color: $highlight-color;
+    }
 }
 
 /* Hamburger menu on small screens */
@@ -113,19 +112,13 @@ nav a:hover, .active a {
     background: $main-bg-color;
 
     /* Move logo and search field off screen */
-    .logo {
-        position: absolute;
-        left: -999rem;
-    }
-    form {
-        position: absolute;
-        left: -999rem;
+    .logo, form {
+        @extend %off-screen;
     }
     
     /* Undo the text indent */
     ul {
-        display: flex;
-        flex-direction: column;
+        @extend %flex-column;
         text-indent: 0;
     }
     
@@ -149,20 +142,20 @@ nav a:hover, .active a {
 
 /** form **/
 form {
-    display: flex;
-    flex-direction: column;
+    @extend %flex-column;
     align-items: center;
     margin-top: 15rem;
     
     label {
         background-color: $main-bg-color;
         padding: 0.5rem;
+        margin-right: auto;
     }
     
     .search-box {
         display: flex;
         font-size: $font-size-heading;
-        @include wh(70%, 5rem);
+        @include wh(100%, 5rem);
     }
     
     input[type=search] {
@@ -181,11 +174,14 @@ form {
 }
 
 /* Small screen form layout in header */
+/* Change form margin based on screen size */
 @include mq(small) {
     form {
         flex-wrap: wrap;
         justify-content: center;
         margin-top: 5rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
           
         label {
             font-size: $font-size-small;
@@ -197,6 +193,19 @@ form {
     }        
 }
 
+@include mq(medium) {
+    form {
+        margin-left: 8rem;
+        margin-right: 8rem;
+    }
+}
+
+@include mq(large) {
+    form {
+        margin-left: 20rem;
+        margin-right: 20rem;
+    }
+}
 
 /** search results **/
 /* settings shared across screen sizes */
@@ -206,8 +215,7 @@ form {
 }
 
 .search-results {
-    display: flex;
-    flex-direction: column;
+    @extend %flex-column;
     
     #msg {
         @extend %search-heading;
@@ -238,16 +246,14 @@ form {
         color: $highlight-color;
         font-size: 1.5rem;
         padding: 1rem 0 1rem 1rem;
-        background-color: $main-bg-color;
     }
     
     p {
         padding: 0 0 1rem 1rem;
-        background-color: $main-bg-color;
     }
 }
 
-/* layout specific small screens */
+/* search results layout - small screens */
 @include mq(small) {
     .search-results {
         justify-content: flex-start;
@@ -271,19 +277,11 @@ form {
         }
     }
 }
-// figure out how to combine overlapping rules
-/* layout specific medium screens */
-@include mq(medium) {
+/* search results layout for medium screens and up */
+@include mq(med-up) {
     .movies {
         display: flex;
         flex-flow: wrap;
-        justify-content: space-between;
-    }
-    
-    // 2 column layout
-    .movies > article {
-        width: calc(50% - 1rem);
-        margin: .5rem .5rem;
     }
     
     article img {
@@ -296,27 +294,29 @@ form {
     }
 }
 
-/* layout specific large screens */
-@include mq(large) {
-    .search-results h2 {
-        align-self: flex-start;
-        margin-top: 4rem;
-    }
-    
+/* search results layout - medium screens */
+@include mq(medium) {
     .movies {
-        display: flex;
-        flex-flow: wrap;
-        justify-content: flex-start;
+        justify-content: space-between;
     }
     
     // 2 column layout
     .movies > article {
-        width: calc(33% - 2rem);
-        margin: 1rem 1rem;
+        width: calc(50% - 1rem);
+        margin: .5rem 1rem .5rem 0;
+    }
+}
+
+/* layout specific large screens */
+@include mq(large) {
+    .movies {
+        justify-content: flex-start;
     }
     
-    article img {
-        width: calc(100%);
+    // 3 column layout
+    .movies > article {
+        width: calc(33% - 2rem);
+        margin: 1rem 2rem 1rem 0;
     }
     
     .search-results button {
