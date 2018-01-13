@@ -11,6 +11,7 @@
     @elseif $size == medium {
         @media (min-width: 493px) and (max-width: 900px) { @content; }
     }
+    // This one works for all screens above medium size
     @elseif $size == large {
         @media (min-width: 900px) { @content; }
     }

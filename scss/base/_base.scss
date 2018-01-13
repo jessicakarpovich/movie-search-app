@@ -46,11 +46,6 @@ header {
         no-repeat top left;
     background-size: cover;
     padding-bottom: 5%;
-    
-    @include mq(small) {
-        background-size: cover;
-        padding-bottom: 5%;
-    }
 }
 
 /*** navigation ***/
@@ -77,11 +72,12 @@ nav {
 nav ul {
     display: flex;
     margin-left: auto;
-    padding: 2.5rem 1rem 0 0;
+    padding: 1.5rem 1rem 0 0;
 
 
     li {
         margin: 0 0.5rem;
+        padding-top: 1rem;
     }
 }
 
@@ -152,18 +148,15 @@ nav a:hover, .active a {
 }
 
 /** form **/
-
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 15rem;
     
     label {
-        display: flex;
-        margin-top: 20%;
         background-color: $main-bg-color;
         padding: 0.5rem;
-        margin-right: 0;
     }
     
     .search-box {
@@ -175,11 +168,6 @@ form {
     input[type=search] {
         padding-right: 5rem;
         @include wh(100%, 5rem);
-        
-        /* needed to avoid using default browser search box height */
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
     }    
     
     .search-btn {
@@ -197,10 +185,10 @@ form {
     form {
         flex-wrap: wrap;
         justify-content: center;
+        margin-top: 5rem;
           
         label {
             font-size: $font-size-small;
-            //margin-top: 7%;
         }
         
         .search-box {
@@ -214,23 +202,22 @@ form {
 /* settings shared across screen sizes */
 .search-results h2 {
     @extend %search-heading;
-    margin-top: 4%;
-    margin-bottom: 2%;
-
-}
-
-#msg {
-    @extend %search-heading;
-    margin: 4% 0;
+    margin: 1rem 0;
 }
 
 .search-results {
     display: flex;
     flex-direction: column;
     
+    #msg {
+        @extend %search-heading;
+        margin: 1rem 0;
+        align-self: flex-start;
+    }
+    
     button {
         padding: 2rem;
-        margin: 7% auto 2% auto;
+        margin: 2.5rem auto 1rem auto;
         
         background: $highlight-color;
         color: $main-bg-color;
@@ -267,7 +254,7 @@ form {
         margin: 0;
         
         article {
-            margin: 2% 5%;
+            margin: .6rem 1rem;
             display: flex;
             
             img {
@@ -295,19 +282,25 @@ form {
     
     // 2 column layout
     .movies > article {
-        width: calc(50% - 2%);
-        margin: 2% 1%;
+        width: calc(50% - 1rem);
+        margin: .5rem .5rem;
     }
     
     article img {
         width: calc(100%);
+    }
+    
+    .search-results h2 {
+        align-self: flex-start;
+        margin-top: 4rem;
     }
 }
 
 /* layout specific large screens */
 @include mq(large) {
     .search-results h2 {
-        margin-right: auto;
+        align-self: flex-start;
+        margin-top: 4rem;
     }
     
     .movies {
@@ -318,12 +311,16 @@ form {
     
     // 2 column layout
     .movies > article {
-        width: calc(33% - 3%);
-        margin: 2% 1%;
+        width: calc(33% - 2rem);
+        margin: 1rem 1rem;
     }
     
     article img {
         width: calc(100%);
+    }
+    
+    .search-results button {
+        margin: 4rem auto 3rem auto;
     }
 }
 
