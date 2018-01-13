@@ -45,7 +45,7 @@ header {
     background: url('../images/stormtroopers.jpg') 
         no-repeat top left;
     background-size: cover;
-   // padding-bottom: 15rem;
+    padding-bottom: 5%;
     
     @include mq(small) {
         background-size: cover;
@@ -68,10 +68,10 @@ header {
 
 nav {
     display: flex;
-}
-
-span {
-    text-indent: -999rem;
+    
+    span {
+        text-indent: -999rem;
+    }
 }
 
 nav ul {
@@ -160,9 +160,10 @@ form {
     
     label {
         display: flex;
-        margin-top: 7%;
+        margin-top: 20%;
         background-color: $main-bg-color;
         padding: 0.5rem;
+        margin-right: 0;
     }
     
     .search-box {
@@ -177,6 +178,8 @@ form {
         
         /* needed to avoid using default browser search box height */
         -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }    
     
     .search-btn {
@@ -197,6 +200,7 @@ form {
           
         label {
             font-size: $font-size-small;
+            //margin-top: 7%;
         }
         
         .search-box {
@@ -207,6 +211,7 @@ form {
 
 
 /** search results **/
+/* settings shared across screen sizes */
 .search-results h2 {
     @extend %search-heading;
     margin-top: 4%;
@@ -221,7 +226,7 @@ form {
 
 .search-results {
     display: flex;
-    flex-flow: wrap;
+    flex-direction: column;
     
     button {
         padding: 2rem;
@@ -238,10 +243,26 @@ form {
     }
 }
 
+.search-results article {
+    font-family: $font-family-caption;
+    background-color: $main-bg-color;
+    
+    h3 {
+        color: $highlight-color;
+        font-size: 1.5rem;
+        padding: 1rem 0 1rem 1rem;
+        background-color: $main-bg-color;
+    }
+    
+    p {
+        padding: 0 0 1rem 1rem;
+        background-color: $main-bg-color;
+    }
+}
+
+/* layout specific small screens */
 @include mq(small) {
     .search-results {
-        display: flex;
-        flex-direction: column;
         justify-content: flex-start;
         margin: 0;
         
@@ -263,32 +284,46 @@ form {
         }
     }
 }
+// figure out how to combine overlapping rules
+/* layout specific medium screens */
+@include mq(medium) {
+    .movies {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+    }
+    
+    // 2 column layout
+    .movies > article {
+        width: calc(50% - 2%);
+        margin: 2% 1%;
+    }
+    
+    article img {
+        width: calc(100%);
+    }
+}
 
-/* aiming for 3 column layout
-*  fixed max-width means it becomes 4 columns on larger displays */
-.search-results article {
-  //  width: calc(100% / 3);
-//    float: left;
-    padding: 0;
-  //  margin: 1rem 1rem 1rem 0;
-    font-family: $font-family-caption;
-    background-color: $main-bg-color;
-//    max-width: 30rem;
-    
-    img {
-      //  @include wh(30rem, 45rem);
+/* layout specific large screens */
+@include mq(large) {
+    .search-results h2 {
+        margin-right: auto;
     }
     
-    h3 {
-        color: $highlight-color;
-        font-size: 1.5rem;
-        padding: 1rem 0 1rem 1rem;
-        background-color: $main-bg-color;
+    .movies {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: flex-start;
     }
     
-    p {
-        padding: 0 0 1rem 1rem;
-        background-color: $main-bg-color;
+    // 2 column layout
+    .movies > article {
+        width: calc(33% - 3%);
+        margin: 2% 1%;
+    }
+    
+    article img {
+        width: calc(100%);
     }
 }
 

@@ -8,7 +8,10 @@
     @if $size == small {
         @media (min-width: 300px) and (max-width: 493px) { @content; }
     }
-    @if $size == medium {
-        @media (min-width: 493px) and (max-width: 1000px) { @content; }
+    @elseif $size == medium {
+        @media (min-width: 493px) and (max-width: 900px) { @content; }
+    }
+    @elseif $size == large {
+        @media (min-width: 900px) { @content; }
     }
 }
