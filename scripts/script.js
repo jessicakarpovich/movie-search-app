@@ -10,6 +10,9 @@ function search(e) {
     e.preventDefault();
     
     const query = document.querySelector('#movie-search').value;
+    // Store search in localStorage
+    localStorage.setItem('search-term', query);
+    
     const url = api_endpoint + "?api_key=" + key + "&query=" + query + "&page=1";
 
 
@@ -29,6 +32,29 @@ const sBox = document.querySelector('#movie-search');
 sBtn.addEventListener('click', search, false);
 sBox.addEventListener('submit', search, false);
 
+
+// Use localStorage to show last search on load
+function showLastSearch() {
+    if (localStorage.getItem('search-term')) {
+        const query = localStorage.getItem('search-term');
+        const url = api_endpoint + "?api_key=" + key + "&query=" + query + "&page=1";
+        
+        fetch(url) 
+            .then(response => response.json())
+            .then(results => {
+                showSearchResult(results, query);
+            })
+            .catch(function(error) {
+                console.log(error);
+        });
+    }
+    
+}
+
+window.addEventListener('load', showLastSearch, false);
+
+
+// load search results and display them
 function showSearchResult(data, q) {
     const searchResults = document.querySelector('.search-results');
     let content = "<h2>Results for " + q + "</h2>";
