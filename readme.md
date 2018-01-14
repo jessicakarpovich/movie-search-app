@@ -24,21 +24,21 @@ Before you get started, check to make sure you have Sass, nvm, node, gulp, and g
 ## Optional Steps ##
 1. If you plan on making changes to the sass files, run `gulp watch` in the terminal to have the CSS immediately updated. 
 
--*Note:* Before using the above command, you may need to install Browsersync, or to remove some code from the gulpfile. 
+- *Note:* Before using the above command, you may need to install Browsersync, or to remove some code from the gulpfile. 
 
-Browsersync allows you to see your changes applied live in your browser. To install it go [here](https://browsersync.io/#install).
+- Browsersync allows you to see your changes applied live in your browser. To install it go [here](https://browsersync.io/#install).
 
 2. To use Autoprefixer, to add vendor prefixes to CSS, install [gulp-postcss](https://github.com/postcss/gulp-postcss) and [Autoprefixer](https://github.com/postcss/autoprefixer) by using `npm install gulp-postcss autoprefixer` in your project directory.
 
 
 # Current Functionality #
 
-So far, only the home page is complete. When the user enters a search term into the search box and either presses enter or clicks the search icon, the result of their search is displayed below. 
+So far, only the home page is complete. When the user enters a search term into the search box and either presses enter or clicks the search icon, the result of their search is displayed below and saved using the Web Storage API. Upon later visits, the latest search will be displayed to the user. 
 
--If the search found matches, they will be displayed using a 3-column layout.
+- If the search found matches, they will be displayed using a 1, 2, or 3-column layout (depending on the screen size).
 
--If there are no results, it will say "No matching results." and show what the user entered. 
+- If there are no results, it will say "No matching results." and show what the user entered. 
 
 ## Layout ##
 
-The design is currently not responsive and therefore may look incorrect on small or very large displays. 
+The design is now responsive and looks correctly on all screens at and above 320px in width. On screens below 494px in width, the main navigation is hidden and can be toggled by clicking the hamburger icon.
